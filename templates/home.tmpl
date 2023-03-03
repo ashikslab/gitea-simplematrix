@@ -1,20 +1,30 @@
 {{template "base/head" .}}
-<div class="page-content home">
-        <div style="margin:auto; width:100%; position: fixed; padding-top:14px">
-                <canvas id="c"></canvas>
-        </div>
-        <div class="ui stackable middle very relaxed page grid">
-                <div class="sixteen wide center aligned centered column">
-                        <div>
-                                <img class="logo" width="180" height="180" src="{{AssetUrlPrefix}}/img/logo.svg"/>
-                        </div>
-                        <div class="hero">
-                                <h1 class="ui icon header title">
-                                        <pre>{{AppName}}</pre>
-                                </h1>
-                                <h3>{{.locale.Tr "startpage.app_desc"}}</h3>
-                        </div>
-                </div>
-        </div>
+<div role="main" aria-label="{{if .IsSigned}}{{.locale.Tr "dashboard"}}{{else}}{{.locale.Tr "home"}}{{end}}" class="page-content home">
+
+       <div style="margin:auto; width:100%;  position: fixed; padding-top:14px; padding-bottom:28px">
+		<canvas id="c"></canvas>
+	</div>        
+	<div class="ui stackable middle very relaxed page grid">
+		<div class="sixteen wide center aligned centered column">
+
+			<div>
+				<img class="logo" width="220" height="220" src="{{AssetUrlPrefix}}/img/logo.svg" alt="{{.locale.Tr "logo"}}"/>
+			</div>
+			<div class="hero">
+				<h1 class="ui icon header title">
+				    {{AppName}}
+			 	</h1>
+			</div>
+		</div>
+
+	</div>
+
 </div>
 <script src="{{AssetUrlPrefix}}/js/theme-matrix.js"></script>
+ </div>
+  {{template "custom/body_outer_post" .}}
+ {{template "base/footer_content" .}}
+<script src="{{AssetUrlPrefix}}/js/index.js?v={{AssetVersion}}" onerror="alert('Failed to load asset files from ' + this.src + '. Please make sure the asset files can be accessed.')"></script>
+</body>
+
+</html>

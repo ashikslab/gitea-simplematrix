@@ -10,7 +10,7 @@ var my_width = "innerWidth" in window
                : document.documentElement.offsetWidth; ;
 
 //making the canvas full screen
-c.height = my_height;
+c.height = my_height*0.66;
 c.width = my_width;
 
 //latin characters - taken from the unicode charset
@@ -42,12 +42,12 @@ function draw() {
         //a random chinese character to print
         var text = matrix[Math.floor(Math.random() * matrix.length)];
         //x = i*font_size, y = value of drops[i]*font_size
-        ctx.fillText(text, i * font_size, drops[i] * font_size);
+        ctx.fillText(text, i * font_size, drops[i] * font_size *0.66);
 
         //sending the drop back to the top randomly after it has crossed the screen
         //adding a randomness to the reset to make the drops scattered on the Y axis
 
-        if (drops[i] * font_size > c.height && Math.random() > 0.975) {
+        if (drops[i] * font_size > c.height*0.66 && Math.random() > 0.975) {
             drops[i] = 0;
         }
 
